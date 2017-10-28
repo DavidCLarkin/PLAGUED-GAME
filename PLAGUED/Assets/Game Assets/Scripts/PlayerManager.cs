@@ -14,10 +14,9 @@ public class PlayerManager : MonoBehaviour
 {
 	private CharacterController characterController;
 	private FirstPersonController fpsController;
-	//private const float AGGRO_RESET_TIME = 10.0f;
-	private const float DAMAGE_INTERVAL = 2.5f; //length of zombie attack
+	public const float DAMAGE_INTERVAL = 2.5f; //length of zombie attack
 	private const float SHOT_RESET_LEVEL = 10.0f;
-	private float dmgTimer;
+	public float dmgTimer;
 	private float soundTimer;
 	private float soundLvlResetTimer;
 	private Scene currentScene;
@@ -112,15 +111,6 @@ public class PlayerManager : MonoBehaviour
 
 			health += 50;
 			Destroy (col.gameObject);
-		}
-	}
-		
-	void OnCollisionStay(Collision col) //Detect collisions every frame instead of once every collision
-	{
-		if (col.gameObject.tag == "Enemy" && dmgTimer <= 0) 
-		{
-			takeDamage (20.0f);
-			dmgTimer = DAMAGE_INTERVAL;
 		}
 	}
 		

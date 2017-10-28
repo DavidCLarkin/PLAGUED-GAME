@@ -44,16 +44,23 @@ public class ZombieAI : MonoBehaviour
 				if (agent.enabled && playerManager.isWalking ()) 
 				{
 					if (dist <= 10f)
+					{
 						agent.SetDestination (target.position); //no null pointers
+						rotateTowards (target);
+					}
 				} 
 				else if (agent.enabled && playerManager.isCrouchWalking ()) 
 				{
-					if (dist <= 4f)
+					if (dist <= 4f) 
+					{
 						agent.SetDestination (target.position);
+						rotateTowards (target);
+					}
 				} 
 				else if (agent.enabled && playerManager.soundLevel > 4) 
 				{
 					agent.SetDestination (target.position);
+					rotateTowards (target);
 				}
 				else if (agent.enabled && dist > 10) 
 				{
@@ -65,7 +72,6 @@ public class ZombieAI : MonoBehaviour
 					if (Vector3.Distance (this.transform.position, waypoints [waypointID].transform.position) <= 2)
 						waypointID = Random.Range (0, waypoints.Length); //if close, choose another waypoint
 				}
-
 				character.Move (agent.desiredVelocity, false, false); // move somewhere
 			} 
 			else 
@@ -85,6 +91,13 @@ public class ZombieAI : MonoBehaviour
 		}
 	}
 
+	//rotate the AI to the player
+	private void rotateTowards(Transform target)
+	{
+		Vector3 direction = (target.position - transform.position).normalized;
+		Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));    // flattens the vector3
+		transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+	}
 
 	public void SetTarget(Transform target)
 	{

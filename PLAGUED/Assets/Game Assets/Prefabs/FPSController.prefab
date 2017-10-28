@@ -510,12 +510,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4796362053891836}
+  - component: {fileID: 136124099254295818}
   - component: {fileID: 143164412752239520}
   - component: {fileID: 114443981248650552}
   - component: {fileID: 54709152722945288}
   - component: {fileID: 82716569549594216}
   - component: {fileID: 114416809734836878}
-  - component: {fileID: 136124099254295818}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -1763,7 +1763,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472566230108238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.644726, y: 1.471, z: 11.206456}
+  m_LocalPosition: {x: 8.93, y: 1.471, z: 16.223}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4233646329417750}
@@ -1901,6 +1901,8 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 0
+  m_AllowMSAA: 1
+  m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -1935,6 +1937,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23275890301423898
 MeshRenderer:
@@ -1966,6 +1969,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23424398353892760
 MeshRenderer:
@@ -1998,6 +2002,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23500575076922170
 MeshRenderer:
@@ -2029,6 +2034,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23599000906342798
 MeshRenderer:
@@ -2061,6 +2067,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &23711489105535692
 MeshRenderer:
@@ -2092,6 +2099,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &33064925774221578
 MeshFilter:
@@ -2157,11 +2165,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1638240185986848}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6177772, y: 0.6772217, z: 0.08400003}
-  m_Center: {x: -0.20510527, y: 0.58672774, z: -0.0000030300528}
+  m_Size: {x: 0.76206, y: 0.6772217, z: 0.08400003}
+  m_Center: {x: -0.27724662, y: 0.5867277, z: -0.0000030300525}
 --- !u!81 &81884360027506512
 AudioListener:
   m_ObjectHideFlags: 1
@@ -2559,6 +2567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ed9561a720ad4e49bae9daa994ead4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmgTimer: 0
   weapons:
   - {fileID: 1625548888539730}
   - {fileID: 1528492237125766}
@@ -2585,8 +2594,8 @@ MonoBehaviour:
   m_WalkSpeed: 5
   m_RunSpeed: 10
   m_RunstepLenghten: 0.7
-  m_JumpSpeed: 10
-  m_StickToGroundForce: 10
+  m_JumpSpeed: 5
+  m_StickToGroundForce: 20
   m_GravityMultiplier: 2
   m_MouseLook:
     XSensitivity: 2
@@ -2746,10 +2755,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.6068001
   m_Height: 2.2098558
   m_Direction: 1
-  m_Center: {x: 0, y: 0.2, z: 0}
+  m_Center: {x: 0, y: 0.20000005, z: 0.011991501}
 --- !u!137 &137553982857315426
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -2780,6 +2789,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
