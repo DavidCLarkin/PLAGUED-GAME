@@ -78,39 +78,11 @@ public class PlayerManager : MonoBehaviour
 		health -= damage;
 	}
 
-	//Collecting consumables
-	void OnCollisionEnter(Collision col) //Detecting one instance of a collision
-	{
-		if (col.gameObject.tag == "HealthBox") 
-		{
-			if (health == maxHealth) return; //if health full, dont do anything
-
-			health += 50;
-			Destroy (col.gameObject);
-		}
-
-		foreach (GameObject gun in weapons) 
-		{
-			if (gun.activeSelf && isRangedWeapon(gun)) 
-			{
-				if (col.gameObject.tag == "AmmoBox") 
-				{
-					gun.GetComponent<ShootGun> ().ammo += gun.GetComponent<ShootGun> ().clip;
-					Destroy (col.gameObject);
-				}
-			}
-		}
-			
-	}
-
 	void OnTriggerEnter(Collider col)
 	{
-		print ("collidided");
-		print (col.gameObject.tag);
 		//activate whatever weapon you collide with + "Body" because of tags
 		foreach(GameObject currentGun in weapons) 
 		{
-			print (currentGun.tag);
 			if (col.gameObject.tag == currentGun.tag + "Body") 
 			{
 				foreach(GameObject otherGun in weapons) 
@@ -123,10 +95,24 @@ public class PlayerManager : MonoBehaviour
 				}
 				currentGun.SetActive (true);
 				inventory.removeItem (currentGun.tag);
+				Destroy (col.gameObject);
+			}
+
+			if (isRangedWeapon(currentGun) && currentGun.activeSelf && col.gameObject.tag == "AmmoBox") 
+			{
+				currentGun.GetComponent<ShootGun> ().ammo += currentGun.GetComponent<ShootGun> ().clip; //add a clip of ammo
+				Destroy (col.gameObject);
 			}
 		}
-		Destroy (col.gameObject);
 
+		if (col.gameObject.tag == "HealthBox") 
+		{
+			if (health == maxHealth)
+				return; //if max health, dont add health and leave the health box
+
+			health += 50;
+			Destroy (col.gameObject);
+		}
 	}
 		
 	void OnCollisionStay(Collision col) //Detect collisions every frame instead of once every collision

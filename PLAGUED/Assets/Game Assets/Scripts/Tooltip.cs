@@ -21,10 +21,10 @@ public class Tooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 	{
 		if (eventData != null) 
 		{
-			string gunName = eventData.pointerCurrentRaycast.gameObject.GetComponentInChildren<Image> ().sprite.ToString ().Substring (0, 3);
+			string weaponName = eventData.pointerCurrentRaycast.gameObject.GetComponentInChildren<Image> ().sprite.ToString ().Substring (0, 3);
 
-			if (!gunName.Contains ("nul"))
-				tooltip.text = gunName;
+			if (!weaponName.Contains ("nul"))
+				tooltip.text = weaponName;
 		}
 	}
 

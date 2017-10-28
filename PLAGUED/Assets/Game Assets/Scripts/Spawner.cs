@@ -21,10 +21,10 @@ public class Spawner : MonoBehaviour
 
 	void Update () 
 	{
-		//We only want to spawn one at a time, so make sure we're not already making that call
-		if(! isSpawning)
+		//only spawn one at a time
+		if(!isSpawning)
 		{
-			isSpawning = true; //Yep, we're going to spawn
+			isSpawning = true; //spawn zombie
 			int enemyIndex = Random.Range(0, enemies.Length);
 			StartCoroutine(SpawnObject(enemyIndex, Random.Range(minTime, maxTime)));
 		}
