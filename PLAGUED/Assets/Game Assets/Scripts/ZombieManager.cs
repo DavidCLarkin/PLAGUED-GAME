@@ -61,12 +61,12 @@ public class ZombieManager : MonoBehaviour
 			health -= 20;
 			Destroy (col.gameObject);
 		}
-		if (col.gameObject.tag == "Axe") 
-		{
-			print ("HIT" + health);
-			health -= 50;
-		}
+	}
 
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.gameObject.tag == "Axe")
+			health -= 50;
 	}
 		
 	void destroyThis()
@@ -190,6 +190,7 @@ public class ZombieManager : MonoBehaviour
 
 		if (dying) 
 		{
+			attack = false;
 			gameObject.GetComponent<Rigidbody> ().isKinematic = true; //wont fall through floor
 			gameObject.GetComponent<CapsuleCollider> ().enabled = false;
 			mNavMesh.enabled = false;

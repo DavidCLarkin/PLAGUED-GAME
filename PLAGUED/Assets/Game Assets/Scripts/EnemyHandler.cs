@@ -1,0 +1,21 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EnemyHandler : MonoBehaviour 
+{
+	public static List<GameObject> currentEnemiesInScene = new List<GameObject>();
+
+	public static int maximumEnemies = 5;
+	// Use this for initialization
+	void Start () 
+	{
+		DontDestroyOnLoad (gameObject); //keep in game, handles AI amount
+	}
+	
+	// Update is called once per frame
+	void Update () 
+	{
+		
+	}
+}
