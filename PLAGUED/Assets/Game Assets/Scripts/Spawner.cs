@@ -8,8 +8,6 @@ public class Spawner : MonoBehaviour
 	public float minTime = 5.0f;
 	public float maxTime = 15.0f;
 	public GameObject[] enemies;  // Array of enemy prefabs.
-	//private List<GameObject> currentEnemies = new List<GameObject>();
-	//public int maximumEnemies;
 
 	void Start()
 	{
