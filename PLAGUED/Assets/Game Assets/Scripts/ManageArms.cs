@@ -74,10 +74,10 @@ public class ManageArms : MonoBehaviour
 			foreach (GameObject gun in playerM.weapons) 
 			{
 				if(hasRangedWeapon)
-					print ("Reload time" + gun.GetComponent<ShootGun> ().reloadTime);
+					//print ("Reload time" + gun.GetComponent<ShootGun> ().reloadTime);
 				//Reload only when ammo in clip is less than max clip of a mag 
 				if (Input.GetKeyDown (KeyCode.R) && hasRangedWeapon && Time.time >= reloadTime
-					&& gun.GetComponent<ShootGun> ().clip < gun.GetComponent<ShootGun> ().maxClip && !Inventory.showInventory) 
+					&& gun.GetComponent<ShootGun> ().clip < gun.GetComponent<ShootGun> ().maxClip && !Inventory.showInventory && gun.GetComponent<ShootGun>().ammo > 0) 
 				{
 					reloading = true;
 					reloadTime = Time.time + 2.4f;

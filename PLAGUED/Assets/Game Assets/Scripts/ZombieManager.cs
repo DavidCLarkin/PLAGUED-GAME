@@ -5,6 +5,10 @@ using UnityEngine.AI;
 
 public class ZombieManager : MonoBehaviour 
 {
+
+	public int health;
+	public float damage;
+
 	private const float IN_ATTACK_RANGE = 1.9f;
 	private const float FOLLOW_RANGE_STANDING = 10f;
 	private const float FOLLOW_RANGE_CROUCHING = 4f;
@@ -17,7 +21,6 @@ public class ZombieManager : MonoBehaviour
 	private bool run;
 	private bool notMoving;
 	private GameObject player;
-	public int health;
 	private float timer;
 	private NavMeshAgent mNavMesh;
 	private PlayerManager playerManager;
@@ -25,7 +28,7 @@ public class ZombieManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		health = 100;
+		//health = 100;
 		anim = GetComponent<Animator>();
 		mNavMesh = this.GetComponent<NavMeshAgent> (); //quick access later
 		player = GameObject.Find("FPSController"); //set player to target
@@ -165,7 +168,7 @@ public class ZombieManager : MonoBehaviour
 
 		if (attack && playerManager.dmgTimer <= 0) 
 		{
-			playerManager.takeDamage (20.0f);
+			playerManager.takeDamage (damage);
 			playerManager.dmgTimer = DAMAGE_TIMER;
 		}
 

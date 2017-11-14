@@ -30,7 +30,9 @@ public class ButtonFunction : MonoBehaviour
 
 	public void Restart()
 	{
-		SceneManager.LoadScene ("Level1");
+		EnemyHandler.currentEnemiesInScene.Clear ();
+		EnemyHandler.maximumEnemies = 5;
+		SceneManager.LoadScene ("Level1", LoadSceneMode.Single);
 	}
 
 	/*

@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
 	public float minTime = 5.0f;
 	public float maxTime = 15.0f;
 	public GameObject[] enemies;  // Array of enemy prefabs.
+	public int count;
 
 	void Start()
 	{
@@ -15,7 +16,8 @@ public class Spawner : MonoBehaviour
 			EnemyHandler.currentEnemiesInScene.Add(enemy);
 		
 		if(EnemyHandler.maximumEnemies > 1)
-			EnemyHandler.maximumEnemies -= 1;
+			EnemyHandler.maximumEnemies -= 1; //so its the actual number. 0-based indexing accouted for
+
 	}
 
 	IEnumerator SpawnObject(int index, float seconds)
@@ -28,13 +30,20 @@ public class Spawner : MonoBehaviour
 
 	void Update () 
 	{
-		foreach(GameObject e in EnemyHandler.currentEnemiesInScene)
+		count = EnemyHandler.currentEnemiesInScene.Count;
+		if (EnemyHandler.currentEnemiesInScene.Count != 0) 
 		{
-			if (e.GetComponent<ZombieManager> ().health <= 0)
-				EnemyHandler.currentEnemiesInScene.Remove(e);
+			for(int i = 0; i < EnemyHandler.currentEnemiesInScene.Count; i++)
+			{
+				//if (e.GetComponent<ZombieManager> ().health <= 0) 
+				if(EnemyHandler.currentEnemiesInScene[i].GetComponent<ZombieManager>().health <= 0)
+				{
+					EnemyHandler.currentEnemiesInScene.RemoveAt(i);
+				}
+			}
 		}
 		//only spawn one at a time
-		if(!isSpawning && !(EnemyHandler.currentEnemiesInScene.Count > EnemyHandler.maximumEnemies))
+		if(!isSpawning && (EnemyHandler.currentEnemiesInScene.Count <= EnemyHandler.maximumEnemies))
 		{
 			isSpawning = true; //spawn zombie
 			int enemyIndex = Random.Range(0, enemies.Length);

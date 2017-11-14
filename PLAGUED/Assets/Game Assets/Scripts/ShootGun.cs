@@ -56,7 +56,7 @@ public class ShootGun : MonoBehaviour
 			//Reload function
 			if (Input.GetKeyDown (KeyCode.R) && reloadTime <= 0) 
 			{
-				reload ();
+				StartCoroutine (reload ());
 			}	
 		}
 	}
@@ -70,16 +70,18 @@ public class ShootGun : MonoBehaviour
 	}
 		
 
-	void reload()
+	IEnumerator reload()
 	{
-		if (ammo <= 0)	return;
+		//if (ammo <= 0)	return;
 
 		reloadTime += 2.5f;
+		yield return new WaitForSeconds (2.0f);
+		//reloadTime += 2.5f;
 		ammo += clip;
 		if (ammo >= maxClip) //or 30
 			clip = maxClip;
 		else
-			clip = ammo;
+			clip = ammo; //no more ammo to facilitate a full clip, the rest of ammo is the clip size
 		ammo -= maxClip;
 	}
 
@@ -108,4 +110,5 @@ public class ShootGun : MonoBehaviour
 		else if(clip <= 0) //Play the empty clip sound
 			emptyMag.Play();
 	}
+		
 }
