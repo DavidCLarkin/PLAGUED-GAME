@@ -16,8 +16,6 @@ public class Axe : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		//anim.SetBool ("Attacking", attacking);
-
 		if (Input.GetMouseButtonDown (0) && Time.time >= timeStamp) 
 		{
 			attacking = true;
@@ -26,6 +24,12 @@ public class Axe : MonoBehaviour
 
 		if (Time.time >= timeStamp)
 			attacking = false;
+
+		//don't enable collider unless attacking, bug inducing otherwise
+		if (attacking) 
+			gameObject.GetComponentInChildren<BoxCollider> ().enabled = true;
+		else 
+			gameObject.GetComponentInChildren<BoxCollider> ().enabled = false;
 			
 	}
 }

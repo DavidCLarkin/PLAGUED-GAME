@@ -75,6 +75,7 @@ public class PlayerManager : MonoBehaviour
 	public void takeDamage(float damage)
 	{
 		health -= damage;
+		//Mathf.Lerp(health, damage, 2);
 	}
 
 	void OnTriggerEnter(Collider col)

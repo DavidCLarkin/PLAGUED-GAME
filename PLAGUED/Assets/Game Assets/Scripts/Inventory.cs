@@ -38,13 +38,13 @@ public class Inventory : MonoBehaviour
 		{
 			inventory.SetActive (true);
 			titleBlock.SetActive (true);
-			Cursor.visible = true;
+			//Cursor.visible = true;
 		} 
 		else if (!showInventory) 
 		{
 			inventory.SetActive (false);
 			titleBlock.SetActive (false);
-			Cursor.visible = false;
+			//Cursor.visible = false;
 		}
 	}
 

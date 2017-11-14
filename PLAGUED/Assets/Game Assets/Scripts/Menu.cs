@@ -9,6 +9,7 @@ public class Menu : MonoBehaviour
 	public GameObject pausePanel;
 	public GameObject camera;
 	public GameObject player;
+	private Inventory inventory;
 
 	// Use this for initialization
 	void Start () 
@@ -43,12 +44,12 @@ public class Menu : MonoBehaviour
 		if (paused) 
 		{
 			pausePanel.SetActive (true);
-			Cursor.visible = true;
+			//Cursor.visible = true;
 		} 
 		else if (!paused) 
 		{
 			pausePanel.SetActive (false);
-			Cursor.visible = false;
+			//Cursor.visible = false;
 		}
 	}
 		

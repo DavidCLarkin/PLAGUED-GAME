@@ -8,6 +8,7 @@ public class EnemyHandler : MonoBehaviour
 	public static List<GameObject> currentEnemiesInScene = new List<GameObject>();
 
 	public static int maximumEnemies = 5;
+
 	// Use this for initialization
 	void Awake()
 	{
@@ -24,10 +25,5 @@ public class EnemyHandler : MonoBehaviour
 	void Start () 
 	{
 	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		
-	}
+
 }
