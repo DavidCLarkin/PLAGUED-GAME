@@ -55,8 +55,8 @@ public class PlayerManager : MonoBehaviour
 		manageSoundLevels();
 		crouch ();
 
-		if(dmgTimer > 0)
-			dmgTimer -= Time.deltaTime;
+		//if(dmgTimer > 0)
+			//dmgTimer -= Time.deltaTime;
 		if (soundTimer > 0)
 			soundTimer -= Time.deltaTime;
 

@@ -28,11 +28,11 @@ public class ZombieManager : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		//health = 100;
 		anim = GetComponent<Animator>();
 		mNavMesh = this.GetComponent<NavMeshAgent> (); //quick access later
 		player = GameObject.Find("FPSController"); //set player to target
-		playerManager = player.GetComponent<PlayerManager>(); 
+		playerManager = player.GetComponent<PlayerManager>();
+		playerManager.dmgTimer = DAMAGE_TIMER;
 		//walk = true;
 	}
 	
@@ -54,7 +54,10 @@ public class ZombieManager : MonoBehaviour
 			notMoving = true;
 		else
 			notMoving = false;
-		print (notMoving);
+
+		if (playerManager.dmgTimer > 0 && Vector3.Distance (GameObject.Find ("FPSController").transform.position, GetComponent<Transform> ().position) <= 2f)
+			playerManager.dmgTimer -= Time.deltaTime;
+			
 	}
 
 	void OnCollisionEnter(Collision col)
@@ -166,10 +169,13 @@ public class ZombieManager : MonoBehaviour
 		else if (walk)
 			mNavMesh.speed = 0.8f;
 
-		if (attack && playerManager.dmgTimer <= 0) 
+		if (attack) 
 		{
-			playerManager.takeDamage (damage);
-			playerManager.dmgTimer = DAMAGE_TIMER;
+			if (playerManager.dmgTimer <= 0) 
+			{
+				playerManager.takeDamage (damage);
+				playerManager.dmgTimer = DAMAGE_TIMER;
+			}
 		}
 
 		if (dying) //Makes sure the player can't take damage after its dead

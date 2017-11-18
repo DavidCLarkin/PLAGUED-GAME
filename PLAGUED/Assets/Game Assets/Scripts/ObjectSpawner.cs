@@ -9,7 +9,7 @@ public class ObjectSpawner : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		int index = Random.Range (0, objects.Length);
+		int index = Random.Range (0, objects.Length-1);
 		if (objects [index].tag == "AmmoBox" || objects[index].tag == "HealthBox") 
 		{
 			//objects [index].transform.eulerAngles = new Vector3 (90, 0, 0);

@@ -2325,7 +2325,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -2528,7 +2528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 1904314987727056, guid: 5b1d616ba3dabba4a866774ee008f91d, type: 2}
   bulletEmitter: {fileID: 1972205698934826}
-  emptyMag: {fileID: 0}
+  emptyMag: {fileID: 82008071790685752}
   noAmmoText: {fileID: 0}
   ammo: 60
   clip: 25
@@ -2606,7 +2606,7 @@ MonoBehaviour:
     MaximumX: 90
     smooth: 0
     smoothTime: 5
-  m_UseFovKick: 1
+  m_UseFovKick: 0
   m_FovKick:
     Camera: {fileID: 0}
     originalFov: 0
