@@ -4,6 +4,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     // INSPECTOR SETTINGS
+	private AudioSource doorOpen;
     [Header("Rotation Settings")]
     [Tooltip("The initial angle of the door/window.")]
     public float InitialAngle = 0.0F;
@@ -47,6 +48,7 @@ public class Door : MonoBehaviour
 
     void Start()
     {
+		doorOpen = GetComponent<AudioSource> ();
         // Give the object the name "Door" for future reference
         gameObject.tag = "Door";
 
@@ -145,6 +147,7 @@ public class Door : MonoBehaviour
     // MOVE FUNCTION
     public IEnumerator Move()
     {
+		doorOpen.Play ();
         // ANGLES
         if (RotationSide == SideOfRotation.Left)
         {
