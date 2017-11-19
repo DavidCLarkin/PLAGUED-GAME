@@ -20,7 +20,6 @@ public class ButtonFunction : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		
 	}
 
 	public void ExitGame()
@@ -33,6 +32,11 @@ public class ButtonFunction : MonoBehaviour
 		EnemyHandler.currentEnemiesInScene.Clear ();
 		EnemyHandler.maximumEnemies = 5;
 		SceneManager.LoadScene ("Level1", LoadSceneMode.Single);
+	}
+
+	public void StartGame()
+	{
+		SceneManager.LoadScene ("Level1");
 	}
 
 	/*

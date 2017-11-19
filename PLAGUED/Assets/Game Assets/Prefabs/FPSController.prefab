@@ -612,8 +612,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4082880102599614}
-  - component: {fileID: 114280711234705388}
   - component: {fileID: 82864633292043000}
+  - component: {fileID: 114280711234705388}
   - component: {fileID: 114765936032231014}
   m_Layer: 11
   m_Name: UMP-45

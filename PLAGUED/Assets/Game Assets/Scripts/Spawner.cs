@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Spawner : MonoBehaviour 
 {
@@ -23,6 +24,9 @@ public class Spawner : MonoBehaviour
 	{
 		yield return new WaitForSeconds(seconds);
 		EnemyHandler.currentEnemiesInScene.Add(Instantiate(enemies[index], transform.position, transform.rotation));
+
+		//warp position to terrain so it goes to navmesh
+		EnemyHandler.currentEnemiesInScene[EnemyHandler.currentEnemiesInScene.Capacity-1].GetComponent<NavMeshAgent> ().Warp (gameObject.transform.position); 
 
 		isSpawning = false;
 	}

@@ -73,32 +73,33 @@ public class ManageArms : MonoBehaviour
 		{
 			foreach (GameObject gun in playerM.weapons) 
 			{
-				if(hasRangedWeapon)
-					//print ("Reload time" + gun.GetComponent<ShootGun> ().reloadTime);
-				//Reload only when ammo in clip is less than max clip of a mag 
-				if (Input.GetKeyDown (KeyCode.R) && hasRangedWeapon && Time.time >= reloadTime
+				if(gun.activeSelf) //gun needs to be active or else don't test
+				{	
+					//Reload only when ammo in clip is less than max clip of a mag 
+					if (Input.GetKeyDown (KeyCode.R) && hasRangedWeapon && Time.time >= reloadTime
 					&& gun.GetComponent<ShootGun> ().clip < gun.GetComponent<ShootGun> ().maxClip && !Inventory.showInventory && gun.GetComponent<ShootGun>().ammo > 0) 
-				{
-					reloading = true;
-					reloadTime = Time.time + 2.4f;
+					{
+						reloading = true;
+						reloadTime = Time.time + 2.4f;
+					}
+
+						if (Input.GetMouseButton (0) && hasRangedWeapon && gun.GetComponent<ShootGun> ().reloadTime <= 0 && gun.GetComponent<ShootGun> ().clip > 0)
+							shooting = true;
+						else
+							shooting = false;
+
+					
+						if (Input.GetMouseButton (1) && (M4A1.activeSelf))
+							aiming = true;
+						else
+							aiming = false;
+
+
+						if (Input.GetMouseButton (1) && (UMP45.activeSelf))
+							aimUMP = true;
+						else
+							aimUMP = false;
 				}
-
-				if (Input.GetMouseButton (0) && playerM.isRangedWeapon(gun) && gun.GetComponent<ShootGun>().reloadTime <= 0 && gun.GetComponent<ShootGun>().clip > 0)
-					shooting = true;
-				else
-					shooting = false;
-
-				
-				if (Input.GetMouseButton (1) && (M4A1.activeSelf)) 
-					aiming = true;
-				else
-					aiming = false;
-
-
-				if (Input.GetMouseButton (1) && (UMP45.activeSelf)) 
-					aimUMP = true;
-				else
-					aimUMP = false;
 
 			}
 				
@@ -108,7 +109,5 @@ public class ManageArms : MonoBehaviour
 				timeStamp = Time.time + 1f;
 			}
 		}
-			
-			
 	}
 }
