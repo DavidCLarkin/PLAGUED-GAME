@@ -6,6 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/MainMenu.unity
+    guid: a90daf01751f67445b65d333e2b133f8
+  - enabled: 1
     path: Assets/Level1.unity
+    guid: 9421a3f454124c94d8c069863cbac77a
   - enabled: 1
     path: Assets/DeadScreen.unity
+    guid: cf9d02a80ce9de440ab4c4614b2c7d41
+  - enabled: 1
+    path: Assets/BeatGame.unity
+    guid: 9396ab42567a0a4418dd2f297d2048bc

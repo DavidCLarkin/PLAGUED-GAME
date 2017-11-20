@@ -517,6 +517,7 @@ GameObject:
   - component: {fileID: 82716569549594216}
   - component: {fileID: 114416809734836878}
   - component: {fileID: 114503161248726966}
+  - component: {fileID: 114120489589083276}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -1764,7 +1765,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472566230108238}
   m_LocalRotation: {x: -0, y: 0.99996614, z: -0, w: -0.008234503}
-  m_LocalPosition: {x: -4.1, y: 2.4, z: 348.94}
+  m_LocalPosition: {x: -25.823, y: 1.041, z: 369.428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4233646329417750}
@@ -2268,8 +2269,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 0.426
+  m_PlayOnAwake: 0
+  m_Volume: 0.173
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2515,6 +2516,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114120489589083276
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1472566230108238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0750ef34d194d524ab806b690b80309f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numberOfZombiesToKill: 15
+  zombiesKilled: 0
 --- !u!114 &114280711234705388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2569,6 +2583,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmgTimer: 0
+  footstepSounds:
+  - {fileID: 8300000, guid: a829296e83128554cba9da342d83d361, type: 3}
+  - {fileID: 8300000, guid: 5a7bf85c9d703074db7e82ff2ce16e6a, type: 3}
+  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
+  - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
+  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
+  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 8300000, guid: 071e5d5bdeb478746927080a2b18c5cd, type: 3}
+  - {fileID: 8300000, guid: 9418997ac6c37094e8a0076e4fb92864, type: 3}
   weapons:
   - {fileID: 1625548888539730}
   - {fileID: 1528492237125766}
@@ -2677,8 +2700,8 @@ MonoBehaviour:
     BobAmount: 0.1
   m_StepInterval: 5
   m_FootstepSounds:
-  - {fileID: 8300000, guid: a829296e83128554cba9da342d83d361, type: 3}
-  - {fileID: 8300000, guid: 5a7bf85c9d703074db7e82ff2ce16e6a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   m_JumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   m_LandSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
 --- !u!114 &114503161248726966

@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
 		EnemyHandler.currentEnemiesInScene.Add(Instantiate(enemies[index], transform.position, transform.rotation));
 
 		//warp position to terrain so it goes to navmesh
-		EnemyHandler.currentEnemiesInScene[EnemyHandler.currentEnemiesInScene.Capacity-1].GetComponent<NavMeshAgent> ().Warp (gameObject.transform.position); 
+		EnemyHandler.currentEnemiesInScene [EnemyHandler.currentEnemiesInScene.Count - 1].GetComponent<NavMeshAgent> ().Warp (gameObject.transform.position); 
 
 		isSpawning = false;
 	}

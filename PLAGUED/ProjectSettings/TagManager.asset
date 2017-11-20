@@ -17,6 +17,9 @@ TagManager:
   - Waypoint
   - Terrain
   - Door
+  - Floor
+  - Tile
+  - Carpet
   layers:
   - Default
   - TransparentFX

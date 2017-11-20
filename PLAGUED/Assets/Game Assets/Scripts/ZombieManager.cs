@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class ZombieManager : MonoBehaviour 
 {
-
 	public int health;
 	public float damage;
 
@@ -55,6 +54,7 @@ public class ZombieManager : MonoBehaviour
 		else
 			notMoving = false;
 
+		//only decrement when close to zombie, so you can't get hit without an animation or on contact
 		if (playerManager.dmgTimer > 0 && Vector3.Distance (GameObject.Find ("FPSController").transform.position, GetComponent<Transform> ().position) <= 2f)
 			playerManager.dmgTimer -= Time.deltaTime;
 			
@@ -77,8 +77,11 @@ public class ZombieManager : MonoBehaviour
 		
 	void destroyThis()
 	{
-		if (timer < 0)
+		if (timer < 0) 
+		{
+			player.GetComponent<EnemyCounter> ().zombiesKilled++;
 			Destroy (gameObject);
+		}
 	}
 
 
@@ -178,8 +181,9 @@ public class ZombieManager : MonoBehaviour
 			}
 		}
 
-		if (dying) //Makes sure the player can't take damage after its dead
+		if (dying)  //Makes sure the player can't take damage after its dead
 			this.gameObject.tag = "Untagged";
+
 
 		if(timer > 0)
 			timer -= Time.deltaTime;
@@ -190,11 +194,9 @@ public class ZombieManager : MonoBehaviour
 		{
 			if (mNavMesh.enabled && !dying) 
 			{
-				timer += TIME_TO_DESTROY_ZOMBIE;
-				//this.GetComponent<AICharacterControl> ().enabled = false; //no null pointers to script
-				//mNavMesh.enabled = false;
+				timer = TIME_TO_DESTROY_ZOMBIE;
+				dying = true; //set to true after above so it doesnt keep adding to the timer
 			}
-			dying = true; //set to true after above so it doesnt keep adding to the timer
 		}
 
 		if (dying) 
@@ -202,7 +204,9 @@ public class ZombieManager : MonoBehaviour
 			attack = false;
 			gameObject.GetComponent<Rigidbody> ().isKinematic = true; //wont fall through floor
 			gameObject.GetComponent<CapsuleCollider> ().enabled = false;
+			gameObject.GetComponent<AudioSource>().enabled = false;
 			mNavMesh.enabled = false;
+
 		}
 	}
 }

@@ -39,7 +39,7 @@ public class ZombieAI : MonoBehaviour
 		if (!miniGameAI) 
 		{
 			if (target != null || playerManager.soundLevel > 4) 
-			{ //DISTANCE FROM PLAYER 			//&& dist <= 10f;
+			{
 				//CHECKING IF PLAYER IS WALKING OR CROUCHING, AND CHANGING DISTANCES DEPENDING ON THESE VARIABLES
 				if (agent.enabled && playerManager.isWalking ()) 
 				{

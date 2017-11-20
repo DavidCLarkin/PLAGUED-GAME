@@ -13,8 +13,11 @@ public class ButtonFunction : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		playerM = GameObject.Find ("FPSController").GetComponent<PlayerManager> ();
-		inventory = GameObject.Find ("GameManager").GetComponent<Inventory>();
+		if (SceneManager.GetActiveScene ().name.Equals ("Level1")) 
+		{
+			playerM = GameObject.Find ("FPSController").GetComponent<PlayerManager> ();
+			inventory = GameObject.Find ("GameManager").GetComponent<Inventory> ();
+		}
 	}
 	
 	// Update is called once per frame
@@ -39,6 +42,10 @@ public class ButtonFunction : MonoBehaviour
 		SceneManager.LoadScene ("Level1");
 	}
 
+	public void MainMenu()
+	{
+		SceneManager.LoadScene ("MainMenu");
+	}
 	/*
 	 * Method that is called when a button on the inventory is pressed that determines which weapons to remove and add to the Inventory UI
 	 */

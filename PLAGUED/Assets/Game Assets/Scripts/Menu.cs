@@ -26,7 +26,7 @@ public class Menu : MonoBehaviour
 			paused = !paused;
 			if (paused) 
 			{
-				GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController> ().enabled = false;
+				player.GetComponent<FirstPersonController> ().enabled = false;
 				Time.timeScale = 0;
 			} 
 		}
@@ -34,7 +34,7 @@ public class Menu : MonoBehaviour
 		if (!paused) 
 		{
 			Time.timeScale = 1;
-			GameObject.FindGameObjectWithTag("Player").GetComponent<FirstPersonController> ().enabled = true;
+			player.GetComponent<FirstPersonController> ().enabled = true;
 		}
 			
 	}

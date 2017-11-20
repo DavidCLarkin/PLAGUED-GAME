@@ -907,7 +907,7 @@ GameObject:
   - component: {fileID: 65873639880636590}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Carpet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1119,7 +1119,7 @@ GameObject:
   - component: {fileID: 23630698468512722}
   m_Layer: 0
   m_Name: floor
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8

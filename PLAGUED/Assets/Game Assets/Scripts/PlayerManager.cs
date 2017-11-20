@@ -22,6 +22,7 @@ public class PlayerManager : MonoBehaviour
 	private Scene currentScene;
 	private Inventory inventory;
 
+	public AudioClip[] footstepSounds;
 	public List<GameObject> weapons = new List<GameObject> ();
 	public GameObject ARMS;
 	public GameObject M4A1_GUN;
@@ -53,6 +54,7 @@ public class PlayerManager : MonoBehaviour
 	void Update () 
 	{	
 		manageSoundLevels();
+		playFootSteps();
 		crouch ();
 
 		//if(dmgTimer > 0)
@@ -75,7 +77,45 @@ public class PlayerManager : MonoBehaviour
 	public void takeDamage(float damage)
 	{
 		health -= damage;
-		//Mathf.Lerp(health, damage, 2);
+	}
+
+	//Playing sounds based on ground below player
+	void playFootSteps()
+	{
+		if (GetComponent<AudioSource> ().isPlaying)
+			return;
+		
+		RaycastHit hit;
+		if (Physics.Raycast (transform.position, Vector3.down, out hit)) 
+		{
+			if (isWalking () || isCrouchWalking ()) 
+			{
+				if (hit.collider.tag == "Terrain") 
+				{
+					GetComponent<AudioSource> ().clip = footstepSounds [Random.Range (0, 1)];
+					GetComponent<AudioSource> ().Play ();
+				}
+
+				if (hit.collider.tag == "Floor") 
+				{
+					GetComponent<AudioSource> ().clip = footstepSounds [Random.Range (2, 3)];
+					GetComponent<AudioSource> ().Play ();
+				}
+
+				if (hit.collider.tag == "Tile") 
+				{
+					GetComponent<AudioSource> ().clip = footstepSounds [Random.Range (4, 5)];
+					GetComponent<AudioSource> ().Play ();
+				}
+
+				if (hit.collider.tag == "Carpet") 
+				{
+					GetComponent<AudioSource> ().clip = footstepSounds [Random.Range (6, 7)];
+					GetComponent<AudioSource> ().Play ();
+
+				}
+			}
+		}
 	}
 
 	void OnTriggerEnter(Collider col)
@@ -108,7 +148,7 @@ public class PlayerManager : MonoBehaviour
 		if (col.gameObject.tag == "HealthBox") 
 		{
 			if (health == maxHealth)
-				return; //if max health, dont add health and leave the health box
+				return;
 
 			health += 50;
 			Destroy (col.gameObject);

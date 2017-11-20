@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 23526653929672808}
   m_Layer: 0
   m_Name: Step2 (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 23074908125765840}
   m_Layer: 0
   m_Name: Step4 (22)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 23612044980178040}
   m_Layer: 0
   m_Name: Step3 (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 23032796177023226}
   m_Layer: 0
   m_Name: Step4 (11)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 23708693084905876}
   m_Layer: 0
   m_Name: Step4 (21)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -2269,7 +2269,7 @@ GameObject:
   - component: {fileID: 23429969084807252}
   m_Layer: 0
   m_Name: Step3
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -2692,7 +2692,7 @@ GameObject:
   - component: {fileID: 23609439976119788}
   m_Layer: 0
   m_Name: Step4 (20)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -2755,7 +2755,7 @@ GameObject:
   - component: {fileID: 23697502683965386}
   m_Layer: 0
   m_Name: Step2
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -3144,7 +3144,7 @@ GameObject:
   - component: {fileID: 23310209938513674}
   m_Layer: 0
   m_Name: Step4 (18)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -3368,7 +3368,7 @@ GameObject:
   - component: {fileID: 65874756172868578}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Carpet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3909,7 +3909,7 @@ GameObject:
   - component: {fileID: 23265415171301290}
   m_Layer: 0
   m_Name: Step4 (25)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -4022,7 +4022,7 @@ GameObject:
   - component: {fileID: 23889121956808116}
   m_Layer: 0
   m_Name: Step4 (19)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -4227,7 +4227,7 @@ GameObject:
   - component: {fileID: 23264093979823256}
   m_Layer: 0
   m_Name: Step4 (15)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -4777,8 +4777,8 @@ GameObject:
   m_Name: Wall1 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1430725953850778
 GameObject:
@@ -5651,7 +5651,7 @@ GameObject:
   - component: {fileID: 23605963940824230}
   m_Layer: 0
   m_Name: Step1 (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -5900,7 +5900,7 @@ GameObject:
   - component: {fileID: 23210952173915690}
   m_Layer: 0
   m_Name: Step1
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -6097,8 +6097,8 @@ GameObject:
   m_Name: Wall1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &1532834091420658
 GameObject:
@@ -7131,7 +7131,7 @@ GameObject:
   - component: {fileID: 23290688872546536}
   m_Layer: 0
   m_Name: Step4 (24)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -7297,7 +7297,7 @@ GameObject:
   - component: {fileID: 23681841342082734}
   m_Layer: 0
   m_Name: Step4 (23)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -7474,7 +7474,7 @@ GameObject:
   - component: {fileID: 23618997631344458}
   m_Layer: 0
   m_Name: Step4 (16)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -7570,7 +7570,7 @@ GameObject:
   - component: {fileID: 23179921186785120}
   m_Layer: 0
   m_Name: Step4 (14)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -7808,7 +7808,7 @@ GameObject:
   - component: {fileID: 23406863968906574}
   m_Layer: 0
   m_Name: Step4 (13)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -8196,7 +8196,7 @@ GameObject:
   - component: {fileID: 23826812567196226}
   m_Layer: 0
   m_Name: Step4
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -9043,7 +9043,7 @@ GameObject:
   - component: {fileID: 23235145723615216}
   m_Layer: 0
   m_Name: Step4 (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -10253,7 +10253,7 @@ GameObject:
   - component: {fileID: 23468627605752888}
   m_Layer: 0
   m_Name: floor
-  m_TagString: Untagged
+  m_TagString: Tile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -10318,7 +10318,7 @@ GameObject:
   - component: {fileID: 23400793850161526}
   m_Layer: 0
   m_Name: Step4 (12)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -10336,7 +10336,7 @@ GameObject:
   - component: {fileID: 65795618635525688}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Carpet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -10775,7 +10775,7 @@ GameObject:
   - component: {fileID: 65144460331288410}
   m_Layer: 0
   m_Name: Mesh
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -11318,7 +11318,7 @@ GameObject:
   - component: {fileID: 23380326005296128}
   m_Layer: 0
   m_Name: Step4 (17)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -33487,7 +33487,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 9219321f52f6ceb49bad58d50813938f, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.355
   m_Pitch: 1
   Loop: 0
   Mute: 0

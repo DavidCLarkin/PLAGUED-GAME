@@ -7,7 +7,7 @@ using UnityEngine;
  */
 public class Bullet : MonoBehaviour 
 {
-
+	public float damage;
 	public GameObject bloodPrefab;
 
 	void OnCollisionEnter(Collision col)
