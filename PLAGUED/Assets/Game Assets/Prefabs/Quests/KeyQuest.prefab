@@ -58,3 +58,6 @@ MonoBehaviour:
   amountToKill: 0
   objectName: Key
   player: {fileID: 1472566230108238, guid: 307fea3fe69ef1a40ac2159b4f641055, type: 2}
+  isChainQuest: 1
+  nextQuestInChain: {fileID: 1335510265742510, guid: 6440acdeb20a1db4d972f8c49e8d5e1e,
+    type: 2}

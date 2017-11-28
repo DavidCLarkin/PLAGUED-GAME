@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
 {
 	public static bool paused;
 	public GameObject pausePanel;
-	public GameObject camera;
+	//public GameObject camera;
 	public GameObject player;
 	private Inventory inventory;
 

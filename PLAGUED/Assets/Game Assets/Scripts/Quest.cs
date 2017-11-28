@@ -26,25 +26,33 @@ public class Quest : MonoBehaviour
 	public string objectName;
 	private GameObject objectToCollect;
 	public GameObject player;
+	public bool isChainQuest;
+	public GameObject nextQuestInChain;
 
 	private bool completed;
 
 	// Use this for initialization
 	void Start () 
 	{
-		objectToCollect = GameObject.Find (objectName);
+		if(type == QuestType.COLLECTIBLE)
+			objectToCollect = GameObject.Find (objectName);
 		completed = false;
+
 	}
 
 	//update
 	void FixedUpdate () 
 	{
+		if(isChainQuest && nextQuestInChain.GetComponent<Quest>().state == Quest.QuestState.INACTIVE) //if chained questline, then set next one active
+		{
+			nextQuestInChain.SetActive (true);
+		}
+
 		if (type == QuestType.COLLECTIBLE)
 			collectibleQuest();
 		if (type == QuestType.KILLING)
 			killQuest();
-		print (state);
-		print (objectToCollect);
+
 	}
 		
 	void collectibleQuest()
@@ -56,7 +64,7 @@ public class Quest : MonoBehaviour
 		} 
 		else 
 		{
-			state = QuestState.ACTIVE;
+			state = this.state;
 		}
 	}
 
@@ -69,7 +77,7 @@ public class Quest : MonoBehaviour
 		} 
 		else 
 		{
-			state = QuestState.ACTIVE;
+			state = this.state;
 		}
 	}
 }

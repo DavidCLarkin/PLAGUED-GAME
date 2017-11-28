@@ -19,11 +19,22 @@ public class QuestLog : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		foreach (GameObject quest in questLog) 
+		for(int i = 0; i < questLog.Length; i++) 
 		{
-			if (quest.GetComponent<Quest> ().state == Quest.QuestState.COMPLETE)
-				quest.GetComponent<Quest> ().enabled = false;
+			Quest currentquest = questLog [i].GetComponent<Quest>();
+			if (currentquest.state == Quest.QuestState.COMPLETE || currentquest.state == Quest.QuestState.INACTIVE) 
+			{
+				currentquest.state = 
+					(currentquest.state == Quest.QuestState.COMPLETE) 
+					? Quest.QuestState.COMPLETE : Quest.QuestState.INACTIVE; //set complete if complete else set inactive
+				
+				if (currentquest.isChainQuest && currentquest.nextQuestInChain.GetComponent<Quest> ().state == Quest.QuestState.INACTIVE)
+					currentquest.nextQuestInChain.GetComponent<Quest> ().state = Quest.QuestState.ACTIVE;
+				
+				questLog [i].SetActive (false); //if not active then it should be inactive
+			}
+			if(questLog[i].GetComponent<Quest>().state == Quest.QuestState.ACTIVE)
+				questLog[i].SetActive (true); //if active, set object to active
 		}
-
 	}
 }
