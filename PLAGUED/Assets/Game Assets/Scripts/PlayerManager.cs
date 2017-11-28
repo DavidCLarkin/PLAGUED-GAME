@@ -153,6 +153,11 @@ public class PlayerManager : MonoBehaviour
 			health += 50;
 			Destroy (col.gameObject);
 		}
+
+		if (col.gameObject.tag == "Key") 
+		{
+			col.gameObject.SetActive(false);
+		}
 	}
 		
 	void crouch()

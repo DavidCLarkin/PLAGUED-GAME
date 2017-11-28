@@ -36,6 +36,8 @@ public class Door : MonoBehaviour
     [Tooltip("The color of the visualization of the hinge.")]
     public Color HingeColor = Color.yellow;
 
+	public bool requiresKey;
+
     // Define an initial and final rotation
     Quaternion FinalRot, InitialRot;
     int State;
@@ -146,65 +148,64 @@ public class Door : MonoBehaviour
 
     // MOVE FUNCTION
     public IEnumerator Move()
-    {
-		doorOpen.Play ();
-        // ANGLES
-        if (RotationSide == SideOfRotation.Left)
-        {
-            InitialRot = Quaternion.Euler(0, -InitialAngle, 0);
-            FinalRot = Quaternion.Euler(0, -InitialAngle - RotationAngle, 0);
-        }
+	{
+		//if (this.requiresKey && GameObject.Find ("QuestManager").GetComponent<Quest> ().state == Quest.QuestState.FINISHED) {
+			doorOpen.Play ();
+			// ANGLES
+			if (RotationSide == SideOfRotation.Left) {
+				InitialRot = Quaternion.Euler (0, -InitialAngle, 0);
+				FinalRot = Quaternion.Euler (0, -InitialAngle - RotationAngle, 0);
+			}
 
-        if (RotationSide == SideOfRotation.Right)
-        {
-            InitialRot = Quaternion.Euler(0, -InitialAngle, 0);
-            FinalRot = Quaternion.Euler(0, -InitialAngle + RotationAngle, 0);
-        }
+			if (RotationSide == SideOfRotation.Right) {
+				InitialRot = Quaternion.Euler (0, -InitialAngle, 0);
+				FinalRot = Quaternion.Euler (0, -InitialAngle + RotationAngle, 0);
+			}
 
-        if (TimesRotated < TimesMoveable || TimesMoveable == 0)
-        {
-            if (HingeType == TypeOfHinge.Centered)
-            {
+			if (TimesRotated < TimesMoveable || TimesMoveable == 0) {
+				if (HingeType == TypeOfHinge.Centered) {
 
-                // Change state from 1 to 0 and back ( = alternate between FinalRot and InitialRot)
-                if (hinge.transform.rotation == (State == 0 ? FinalRot : InitialRot)) State ^= 1;
+					// Change state from 1 to 0 and back ( = alternate between FinalRot and InitialRot)
+					if (hinge.transform.rotation == (State == 0 ? FinalRot : InitialRot))
+						State ^= 1;
 
-                // Set 'FinalRotation' to 'FinalRot' when moving and to 'InitialRot' when moving back
-                Quaternion FinalRotation = ((State == 0) ? FinalRot : InitialRot);
+					// Set 'FinalRotation' to 'FinalRot' when moving and to 'InitialRot' when moving back
+					Quaternion FinalRotation = ((State == 0) ? FinalRot : InitialRot);
 
-                // Make the door/window rotate until it is fully opened/closed
-                while (Mathf.Abs(Quaternion.Angle(FinalRotation, hinge.transform.rotation)) > 0.01f)
-                {
-                    RotationPending = true;
-                    hinge.transform.rotation = Quaternion.Lerp(hinge.transform.rotation, FinalRotation, Time.deltaTime * Speed);
-                    yield return new WaitForEndOfFrame();
-                }
+					// Make the door/window rotate until it is fully opened/closed
+					while (Mathf.Abs (Quaternion.Angle (FinalRotation, hinge.transform.rotation)) > 0.01f) {
+						RotationPending = true;
+						hinge.transform.rotation = Quaternion.Lerp (hinge.transform.rotation, FinalRotation, Time.deltaTime * Speed);
+						yield return new WaitForEndOfFrame ();
+					}
 
-                RotationPending = false;
-                if (TimesMoveable == 0) TimesRotated = 0;
-                else TimesRotated++;
-            }
+					RotationPending = false;
+					if (TimesMoveable == 0)
+						TimesRotated = 0;
+					else
+						TimesRotated++;
+				} else {
+					// Change state from 1 to 0 and back (= alternate between FinalRot and InitialRot)
+					if (transform.rotation == (State == 0 ? FinalRot * RotationOffset : InitialRot * RotationOffset))
+						State ^= 1;
 
-            else
-            {
-                // Change state from 1 to 0 and back (= alternate between FinalRot and InitialRot)
-                if (transform.rotation == (State == 0 ? FinalRot * RotationOffset : InitialRot * RotationOffset)) State ^= 1;
+					// Set 'FinalRotation' to 'FinalRot' when moving and to 'InitialRot' when moving back
+					Quaternion FinalRotation = ((State == 0) ? FinalRot * RotationOffset : InitialRot * RotationOffset);
 
-                // Set 'FinalRotation' to 'FinalRot' when moving and to 'InitialRot' when moving back
-                Quaternion FinalRotation = ((State == 0) ? FinalRot * RotationOffset : InitialRot * RotationOffset);
+					// Make the door/window rotate until it is fully opened/closed
+					while (Mathf.Abs (Quaternion.Angle (FinalRotation, transform.rotation)) > 0.01f) {
+						RotationPending = true;
+						transform.rotation = Quaternion.Lerp (transform.rotation, FinalRotation, Time.deltaTime * Speed);
+						yield return new WaitForEndOfFrame ();
+					}
 
-                // Make the door/window rotate until it is fully opened/closed
-                while (Mathf.Abs(Quaternion.Angle(FinalRotation, transform.rotation)) > 0.01f)
-                {
-                    RotationPending = true;
-                    transform.rotation = Quaternion.Lerp(transform.rotation, FinalRotation, Time.deltaTime * Speed);
-                    yield return new WaitForEndOfFrame();
-                }
-
-                RotationPending = false;
-                if (TimesMoveable == 0) TimesRotated = 0;
-                else TimesRotated++;
-            }
-        }
-    }
+					RotationPending = false;
+					if (TimesMoveable == 0)
+						TimesRotated = 0;
+					else
+						TimesRotated++;
+				}
+			}
+		}
+	//}
 }

@@ -62,8 +62,21 @@ public class Detection : MonoBehaviour
 
                 if (Input.GetKey(Character))
                 {
-                    // Open/close the door by running the 'Open' function found in the 'Door' script
-                    if (dooropening.RotationPending == false) StartCoroutine(hit.collider.GetComponent<Door>().Move());
+                    //if door requires key, and quest finished then open
+					if (hit.collider.GetComponent<Door> ().requiresKey) 
+					{
+						print (GameObject.Find ("QuestManager").GetComponent<QuestLog> ().questLog [0].GetComponent<Quest> ().state);
+						if (GameObject.Find ("QuestManager").GetComponent<QuestLog> ().questLog[0].GetComponent<Quest>().state == Quest.QuestState.COMPLETE) 
+						{
+							if (dooropening.RotationPending == false)
+								StartCoroutine (hit.collider.GetComponent<Door> ().Move ());
+						}
+					} 
+					else //if just normal door and key is not needed
+					{
+						if (dooropening.RotationPending == false)
+							StartCoroutine (hit.collider.GetComponent<Door> ().Move ());
+					}
                 }
             }
 
