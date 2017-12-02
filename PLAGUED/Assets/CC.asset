@@ -42,9 +42,9 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 2
+      intensity: 0.25
       radius: 0.3
-      sampleCount: 10
+      sampleCount: 3
       downsampling: 1
       forceForwardCompatibility: 0
       ambientOnly: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
       bloom:
         intensity: 0.5
         threshold: 1.1
-        softKnee: 0.5
+        softKnee: 0.544
         radius: 4
         antiFlicker: 0
       lensDirt:
@@ -289,18 +289,18 @@ MonoBehaviour:
     m_Enabled: 0
     m_Settings:
       colored: 1
-      intensity: 0.5
-      size: 1
-      luminanceContribution: 0.8
+      intensity: 0.173
+      size: 1.24
+      luminanceContribution: 0.712
   vignette:
     m_Enabled: 1
     m_Settings:
       mode: 0
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
-      intensity: 0.355
-      smoothness: 0.2
-      roundness: 0.857
+      intensity: 0.43
+      smoothness: 0.262
+      roundness: 0.775
       mask: {fileID: 0}
       opacity: 1
       rounded: 0

@@ -9,20 +9,39 @@ public class ButtonFunction : MonoBehaviour
 {
 	private PlayerManager playerM;
 	private Inventory inventory;
+	public GameObject controls;
+	public GameObject pausePanel;
+	private bool controlButtonClicked;
 
 	// Use this for initialization
 	void Start () 
 	{
+		controlButtonClicked = false;
+
 		if (SceneManager.GetActiveScene ().name.Equals ("Level1")) 
 		{
 			playerM = GameObject.Find ("FPSController").GetComponent<PlayerManager> ();
 			inventory = GameObject.Find ("GameManager").GetComponent<Inventory> ();
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () 
+
+	void Update()
 	{
+		if (pausePanel.activeSelf) 
+		{
+			AudioListener.volume = 0.0f;
+			if (controlButtonClicked) 
+			{
+				controls.SetActive (true);
+			} 
+			else
+				controls.SetActive (false);
+		} 
+		else 
+		{
+			AudioListener.volume = 1.0f;
+			controls.SetActive (false);
+		}
 	}
 
 	public void ExitGame()
@@ -45,6 +64,11 @@ public class ButtonFunction : MonoBehaviour
 	public void MainMenu()
 	{
 		SceneManager.LoadScene ("MainMenu");
+	}
+
+	public void ShowControls()
+	{
+		controlButtonClicked = !controlButtonClicked;
 	}
 	/*
 	 * Method that is called when a button on the inventory is pressed that determines which weapons to remove and add to the Inventory UI

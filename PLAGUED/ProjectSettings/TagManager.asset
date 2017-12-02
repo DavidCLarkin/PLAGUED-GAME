@@ -21,6 +21,7 @@ TagManager:
   - Tile
   - Carpet
   - Key
+  - Controls
   layers:
   - Default
   - TransparentFX

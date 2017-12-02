@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- * Class to handle input for menus (pause menu, inventory)
+ * Class to handle input for menus (pause menu)
  */
 public class UIHandler : MonoBehaviour 
 {
