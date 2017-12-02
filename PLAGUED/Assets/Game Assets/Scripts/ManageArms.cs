@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine;
 
 /*
@@ -23,12 +24,14 @@ public class ManageArms : MonoBehaviour
 	private GameObject M4A1;
 	private GameObject AXE;
 	private GameObject UMP45;
+	private Camera camera;
 
 	// Use this for initialization
 	void Start () 
 	{
-		anim = GetComponent<Animator> ();
-		playerM = GetComponentInParent<PlayerManager> ();
+		anim = GetComponent<Animator>();
+		playerM = GetComponentInParent<PlayerManager>();
+		camera = GetComponentInParent<Camera>();
 		M4A1 = playerM.M4A1_GUN;
 		AXE = playerM.AXE;
 		UMP45 = playerM.UMP45;
@@ -62,6 +65,11 @@ public class ManageArms : MonoBehaviour
 
 	void manageAnimations()
 	{
+		if (aiming || aimUMP)
+			camera.fieldOfView = Mathf.Lerp(60.0f, 30.0f, 0.5f);
+		else
+			camera.fieldOfView = 60.0f;
+			
 		if (Time.time >= reloadTime)
 			reloading = false;
 
@@ -110,4 +118,5 @@ public class ManageArms : MonoBehaviour
 			}
 		}
 	}
+		
 }
