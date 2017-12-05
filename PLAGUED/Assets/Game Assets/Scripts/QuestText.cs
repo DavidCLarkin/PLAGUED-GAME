@@ -21,11 +21,14 @@ public class QuestText : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		foreach (GameObject quest in questLog) 
+		if (questManager.activeSelf) 
 		{
-			if (quest.GetComponent<Quest>().state == Quest.QuestState.ACTIVE) 
+			foreach (GameObject quest in questLog) 
 			{
-				questDetails.text = QUEST + quest.GetComponent<Quest>().name;
+				if (quest.GetComponent<Quest> ().state == Quest.QuestState.ACTIVE) 
+				{
+					questDetails.text = QUEST + quest.GetComponent<Quest> ().synopsis;
+				}
 			}
 		}
 	}

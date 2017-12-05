@@ -22,6 +22,7 @@ TagManager:
   - Carpet
   - Key
   - Controls
+  - NPC
   layers:
   - Default
   - TransparentFX

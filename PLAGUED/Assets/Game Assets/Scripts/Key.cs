@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class Key : MonoBehaviour 
 {
+	public GameObject dependentObject;
+	public GameObject objectToSpawn;
 
 	// Use this for initialization
 	void Start () 
 	{
-		
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		//if(dependentObject.activeSelf)
+			//objectToSpawn.SetActive(true);
 	}
 }

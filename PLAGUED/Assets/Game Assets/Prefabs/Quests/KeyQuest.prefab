@@ -26,7 +26,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4655125448600594
 Transform:
   m_ObjectHideFlags: 1
@@ -52,11 +52,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Collect The Key
-  description: Collect a key to the main house somewhere in the village
+  synopsis: Collect a key to the locked house by the fountain for weapons
+  description: There's a key somewhere around the village, we need you to find it.
+    Once you find the key, there's a house by the fountain that's boarded up and locked.
+    The key opens that house, and the house contains various weapons and supplies
+    you could use. Collect the key, and kill a few zombies to help us out.
+  killCounter: {fileID: 0}
   type: 0
   state: 1
   amountToKill: 0
-  objectName: Key
+  objectToCollect: {fileID: 0}
   player: {fileID: 1472566230108238, guid: 307fea3fe69ef1a40ac2159b4f641055, type: 2}
   isChainQuest: 1
   nextQuestInChain: {fileID: 1335510265742510, guid: 6440acdeb20a1db4d972f8c49e8d5e1e,

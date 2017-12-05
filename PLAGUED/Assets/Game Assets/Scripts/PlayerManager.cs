@@ -156,7 +156,8 @@ public class PlayerManager : MonoBehaviour
 
 		if (col.gameObject.tag == "Key") 
 		{
-			col.gameObject.SetActive(false);
+			//col.gameObject.SetActive(false);
+			Destroy(col.gameObject);
 		}
 	}
 		

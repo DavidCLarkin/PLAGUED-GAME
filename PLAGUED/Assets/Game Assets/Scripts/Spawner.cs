@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
 	public float minTime = 5.0f;
 	public float maxTime = 15.0f;
 	public GameObject[] enemies;  // Array of enemy prefabs.
+	public GameObject player;
 
 	void Start()
 	{
@@ -31,24 +32,27 @@ public class Spawner : MonoBehaviour
 		isSpawning = false;
 	}
 
-	void Update () 
+	void Update ()
 	{
-		if (EnemyHandler.currentEnemiesInScene.Count != 0) 
+		if (Vector3.Distance (player.transform.position, gameObject.transform.position) <= 50.0f) 
 		{
-			for(int i = 0; i < EnemyHandler.currentEnemiesInScene.Count; i++)
-			{ 
-				if(EnemyHandler.currentEnemiesInScene[i].GetComponent<ZombieManager>().health <= 0)
-				{
-					EnemyHandler.currentEnemiesInScene.RemoveAt(i);
+			if (EnemyHandler.currentEnemiesInScene.Count != 0) 
+			{
+				for (int i = 0; i < EnemyHandler.currentEnemiesInScene.Count; i++) 
+				{ 
+					if (EnemyHandler.currentEnemiesInScene [i].GetComponent<ZombieManager> ().health <= 0) 
+					{
+						EnemyHandler.currentEnemiesInScene.RemoveAt (i);
+					}
 				}
 			}
-		}
-		//only spawn one at a time
-		if(!isSpawning && (EnemyHandler.currentEnemiesInScene.Count <= EnemyHandler.maximumEnemies))
-		{
-			isSpawning = true; //spawn zombie
-			int enemyIndex = Random.Range(0, enemies.Length);
-			StartCoroutine(SpawnObject(enemyIndex, Random.Range(minTime, maxTime)));
+			//only spawn one at a time
+			if (!isSpawning && (EnemyHandler.currentEnemiesInScene.Count <= EnemyHandler.maximumEnemies)) 
+			{
+				isSpawning = true; //spawn zombie
+				int enemyIndex = Random.Range (0, enemies.Length);
+				StartCoroutine (SpawnObject (enemyIndex, Random.Range (minTime, maxTime)));
+			}
 		}
 	}
 }

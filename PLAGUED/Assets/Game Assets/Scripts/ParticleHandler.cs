@@ -26,9 +26,9 @@ public class ParticleHandler : MonoBehaviour
 		if (Vector3.Distance (player.transform.position, gameObject.transform.position) <= 15f) 
 		{
 			particles.Play ();
-			particles.Emit (1);
+			//particles.Emit (1);
 		}
 		else
-			particles.Stop();
+			particles.Pause();
 	}
 }

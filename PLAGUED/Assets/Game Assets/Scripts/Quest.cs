@@ -5,7 +5,10 @@ using UnityEngine;
 public class Quest : MonoBehaviour 
 {
 	public string name;
+	public string synopsis;
 	public string description;
+	public GameObject killCounter;
+
 	public enum QuestType 
 	{
 		COLLECTIBLE,
@@ -23,30 +26,34 @@ public class Quest : MonoBehaviour
 	public QuestState state;
 
 	public int amountToKill;
-	public string objectName;
-	private GameObject objectToCollect;
+	//public GameObject objectName;
+	public GameObject objectToCollect;
 	public GameObject player;
 	public bool isChainQuest;
 	public GameObject nextQuestInChain;
 
-	private bool completed;
+	//private bool completed;
 
 	// Use this for initialization
+	void Awake()
+	{
+
+	}
 	void Start () 
 	{
-		if(type == QuestType.COLLECTIBLE)
-			objectToCollect = GameObject.Find (objectName);
-		completed = false;
-
+		if (type == QuestType.COLLECTIBLE) 
+		{
+			objectToCollect.SetActive (true);
+			//objectToCollect = GameObject.Find (objectName);
+		}
+		//completed = false;
 	}
 
 	//update
 	void FixedUpdate () 
 	{
-		if(isChainQuest && nextQuestInChain.GetComponent<Quest>().state == Quest.QuestState.INACTIVE) //if chained questline, then set next one active
-		{
+		if(isChainQuest && nextQuestInChain.GetComponent<Quest>().state == Quest.QuestState.INACTIVE && state == QuestState.COMPLETE) //if chained questline, then set next one active
 			nextQuestInChain.SetActive (true);
-		}
 
 		if (type == QuestType.COLLECTIBLE)
 			collectibleQuest();
@@ -57,10 +64,10 @@ public class Quest : MonoBehaviour
 		
 	void collectibleQuest()
 	{
-		if (!objectToCollect.activeSelf)
+		if (objectToCollect == null)
 		{
 			state = QuestState.COMPLETE;
-			completed = true;
+			//completed = true;
 		} 
 		else 
 		{
@@ -70,10 +77,11 @@ public class Quest : MonoBehaviour
 
 	void killQuest()
 	{
-		if(player.GetComponent<EnemyCounter>().zombiesKilled >= amountToKill) 
+		killCounter.SetActive(true);
+		if(player.GetComponent<EnemyCounter>().zombiesKilled >= amountToKill)
 		{
 			state = QuestState.COMPLETE;
-			completed = true;
+			//completed = true;
 		} 
 		else 
 		{

@@ -11,6 +11,8 @@ public class ButtonFunction : MonoBehaviour
 	private Inventory inventory;
 	public GameObject controls;
 	public GameObject pausePanel;
+	public GameObject questPanel;
+	public GameObject QuestManager;
 	private bool controlButtonClicked;
 
 	// Use this for initialization
@@ -42,6 +44,13 @@ public class ButtonFunction : MonoBehaviour
 			AudioListener.volume = 1.0f;
 			controls.SetActive (false);
 		}
+	}
+
+	public void AcceptQuest()
+	{
+		questPanel.SetActive (false);
+		Cursor.visible = false;
+		QuestManager.SetActive (true);
 	}
 
 	public void ExitGame()

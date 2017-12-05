@@ -9,7 +9,7 @@ public class KillCount : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		
+		GameObject.Find ("FPSController").GetComponent<EnemyCounter> ().zombiesKilled = 0;
 	}
 	
 	// Update is called once per frame
