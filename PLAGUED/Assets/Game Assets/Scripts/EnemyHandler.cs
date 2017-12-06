@@ -7,7 +7,7 @@ public class EnemyHandler : MonoBehaviour
 	public static EnemyHandler instance;
 	public static List<GameObject> currentEnemiesInScene = new List<GameObject>();
 
-	public static int maximumEnemies = 20;
+	public static int maximumEnemies = 25;
 
 	// Use this for initialization
 	void Awake()

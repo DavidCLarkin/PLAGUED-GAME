@@ -86,7 +86,7 @@ public class PlayerManager : MonoBehaviour
 			return;
 		
 		RaycastHit hit;
-		if (Physics.Raycast (transform.position, Vector3.down, out hit)) 
+		if (Physics.Raycast (transform.position, Vector3.down, out hit) && !Menu.paused) 
 		{
 			if (isWalking () || isCrouchWalking ()) 
 			{

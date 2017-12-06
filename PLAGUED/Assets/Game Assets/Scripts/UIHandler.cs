@@ -7,6 +7,7 @@ using UnityEngine;
  */
 public class UIHandler : MonoBehaviour 
 {
+	public GameObject questPanel;
 	// Use this for initialization
 	void Start () 
 	{
@@ -14,11 +15,11 @@ public class UIHandler : MonoBehaviour
 
 	void Update () 
 	{
-		if (Input.GetKey (KeyCode.Escape) || Input.GetKey (KeyCode.I) || Input.GetKey(KeyCode.E)) 
+		if(Input.GetKey (KeyCode.Escape) || Input.GetKey (KeyCode.I) || Input.GetKey(KeyCode.E))
 		{
-			if (Inventory.showInventory || Menu.paused || GameObject.Find("FPSController").GetComponent<Detection>().QuestPanel.activeSelf)
+			if (Inventory.showInventory || Menu.paused || questPanel.activeInHierarchy)
 				Cursor.visible = true;
-			else 
+			else
 				Cursor.visible = false;
 		} 
 	}

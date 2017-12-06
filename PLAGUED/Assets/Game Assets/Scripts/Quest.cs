@@ -26,7 +26,6 @@ public class Quest : MonoBehaviour
 	public QuestState state;
 
 	public int amountToKill;
-	//public GameObject objectName;
 	public GameObject objectToCollect;
 	public GameObject player;
 	public bool isChainQuest;

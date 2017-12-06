@@ -13,6 +13,8 @@ public class ButtonFunction : MonoBehaviour
 	public GameObject pausePanel;
 	public GameObject questPanel;
 	public GameObject QuestManager;
+	public GameObject menuBindings;
+	public Slider volumeSlider;
 	private bool controlButtonClicked;
 
 	// Use this for initialization
@@ -29,20 +31,23 @@ public class ButtonFunction : MonoBehaviour
 
 	void Update()
 	{
-		if (pausePanel.activeSelf) 
+		if (pausePanel != null) 
 		{
-			AudioListener.volume = 0.0f;
-			if (controlButtonClicked) 
+			if (pausePanel.activeSelf) 
 			{
-				controls.SetActive (true);
-			} 
-			else
+				//AudioListener.volume = 0.0f;
+				if (controlButtonClicked) 
+				{
+					controls.SetActive (true);
+				} 
+				else
+					controls.SetActive (false);
+			}
+			else 
+			{
+				//AudioListener.volume = 1.0f;
 				controls.SetActive (false);
-		} 
-		else 
-		{
-			AudioListener.volume = 1.0f;
-			controls.SetActive (false);
+			}
 		}
 	}
 
@@ -61,7 +66,7 @@ public class ButtonFunction : MonoBehaviour
 	public void Restart()
 	{
 		EnemyHandler.currentEnemiesInScene.Clear ();
-		EnemyHandler.maximumEnemies = 5;
+		EnemyHandler.maximumEnemies = EnemyHandler.maximumEnemies;
 		SceneManager.LoadScene ("Level1", LoadSceneMode.Single);
 	}
 
@@ -78,6 +83,16 @@ public class ButtonFunction : MonoBehaviour
 	public void ShowControls()
 	{
 		controlButtonClicked = !controlButtonClicked;
+	}
+
+	public void ShowBindings()
+	{
+		menuBindings.SetActive (!menuBindings.activeSelf);
+	}
+
+	public void OnValueChanged()
+	{
+		AudioListener.volume = volumeSlider.value;
 	}
 	/*
 	 * Method that is called when a button on the inventory is pressed that determines which weapons to remove and add to the Inventory UI

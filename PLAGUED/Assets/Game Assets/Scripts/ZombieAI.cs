@@ -43,7 +43,7 @@ public class ZombieAI : MonoBehaviour
 				//CHECKING IF PLAYER IS WALKING OR CROUCHING, AND CHANGING DISTANCES DEPENDING ON THESE VARIABLES
 				if (agent.enabled && playerManager.isWalking ()) 
 				{
-					if (dist <= 10f)
+					if (dist <= 17f)
 					{
 						agent.SetDestination (target.position); //no null pointers
 						rotateTowards (target);
@@ -62,7 +62,7 @@ public class ZombieAI : MonoBehaviour
 					agent.SetDestination (target.position);
 					rotateTowards (target);
 				}
-				else if (agent.enabled && dist > 10) 
+				else if (agent.enabled && dist > 17) 
 				{
 					if (Vector3.Distance (this.transform.position, waypoints [waypointID].transform.position) >= 2) 
 					{

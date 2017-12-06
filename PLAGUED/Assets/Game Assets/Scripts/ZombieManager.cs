@@ -9,8 +9,8 @@ public class ZombieManager : MonoBehaviour
 	public float damage;
 
 	private const float IN_ATTACK_RANGE = 1.9f;
-	private const float FOLLOW_RANGE_STANDING = 10f;
-	private const float FOLLOW_RANGE_CROUCHING = 4f;
+	private const float FOLLOW_RANGE_STANDING = 17f;
+	private const float FOLLOW_RANGE_CROUCHING = 6f;
 	private const float TIME_TO_DESTROY_ZOMBIE = 6f;
 	private const float DAMAGE_TIMER = 2.5f;
 	private Animator anim;
@@ -89,7 +89,7 @@ public class ZombieManager : MonoBehaviour
 	{
 		if (!gameObject.GetComponent<ZombieAI> ().miniGameAI) 
 		{
-			if (Vector3.Distance (transform.position, player.transform.position) > 10) 
+			if (Vector3.Distance (transform.position, player.transform.position) > 17) 
 			{ //WAYPOINTS
 				walk = true;
 				run = false;

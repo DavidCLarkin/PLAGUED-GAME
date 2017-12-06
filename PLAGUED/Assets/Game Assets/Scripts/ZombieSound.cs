@@ -21,7 +21,7 @@ public class ZombieSound : MonoBehaviour
 
 	void getRandomSound()
 	{
-		if(GetComponent<AudioSource>().isPlaying)	return;
+		//if(GetComponent<AudioSource>().isPlaying)	callAudio();
 		GetComponent<AudioSource>().clip = sounds [Random.Range (0, sounds.Length)];
 		GetComponent<AudioSource>().Play();
 		callAudio ();
@@ -29,6 +29,6 @@ public class ZombieSound : MonoBehaviour
 
 	void callAudio()
 	{
-		Invoke ("getRandomSound", Random.Range (1, 10));
+		Invoke ("getRandomSound", Random.Range (4, 10));
 	}
 }
